@@ -1,11 +1,18 @@
 
 # Overview
 
-`debug-broker` is a Node.js server, an intermediary between debugged application and debug UI.
+`debug-broker`:
 
-# Protocol
+* was created to simplify debugging of cross-platform applications that run on desktop, mobile, and web
+* is a mediator between debugged application and debug UI
+* is a Node.js server
+* should be hosted on a dedicated server
 
-TODO
+# Debug protocol
+
+Since `debug-broker` is a mediator between application and debug UI, both
+application and debug UI should exchange messages using the same protocol.
+
 
 # Debug UI
 
