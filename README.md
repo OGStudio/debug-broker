@@ -13,7 +13,10 @@ debug-broker
 Since `debug-broker` is a mediator between application and debug UI, both
 application and debug UI should exchange messages using the same protocol.
 
-Here's how sample application side JSON looks like:
+## Application side
+
+Application publishes available debug information for `debug-broker` to
+control. Here's how sample application side JSON looks like:
 
 ```
 {
@@ -39,13 +42,13 @@ Here's how sample application side JSON looks like:
 
 ```
 
-An application may host on or more so-called debuggers. Debugger is a
+Applications may host one or more so-called debuggers. Debugger is a
 container of so-called debug pages.
 
 In this case, we have:
 
-* single debugger titled `Ex03`.
-* single debug page titled `camera`.
+* single debugger named `Ex03`.
+* single debug page named `camera`.
 
 Debug pages contain items to debug.
 
@@ -53,12 +56,47 @@ In this case, `camera` items are:
 
 * `BGColor`
     * with a value of `51,51,102`
-    * the value is allowed to be altered by UI
+    * the value is read-write
 * `Position/Rotation`
     * with a value of `0.000000,-6.883219,0.000000/90.000000,0.000000,-0.000000`
     * the value is read-only
 
+## Debug UI side
 
+Debug UI either queries debug page items, or alters debug page item(s).
+
+Here's how Debug UI query JSON looks like:
+
+```
+{
+  "title": "Ex03"
+}
+```
+
+Here's how Debug UI alteration JSON looks like:
+
+```
+{
+  "title": "Ex03",
+  "pages": [
+    {
+      "title": "camera",
+      "items": [
+        {
+          "title": "BGColor",
+          "value": "151,51,102"
+        }
+      ]
+    }
+  ]
+}
+```
+
+# Installation
+
+Localhost?
+
+Heroku?
 
 # Debug UI
 
