@@ -65,7 +65,7 @@ In this case, `camera` items are:
 
 Debug UI either queries debug page items, or alters debug page item(s).
 
-Here's how Debug UI query JSON looks like:
+Here's how debug UI query JSON looks like:
 
 ```
 {
@@ -73,7 +73,7 @@ Here's how Debug UI query JSON looks like:
 }
 ```
 
-Here's how Debug UI alteration JSON looks like:
+Here's how debug UI alteration JSON looks like:
 
 ```
 {
@@ -118,7 +118,7 @@ message containing values that are now valid.
 
 # Installation
 
-Node.js is the only dependency of `debug-broker`. So you only need to have
+[Node.js][nodejs] is the only dependency of `debug-broker`. So you only need to have
 Node.js to run `debug-broker`.
 
 ## Localhost
@@ -144,6 +144,13 @@ You should see output like this:
 **Warning**: `debug-broker` has no authentication, so anyone would be able to
 access your `debug-broker` instance.
 
+To host `debug-broker` at Heroku, do the following:
+
+* create an app on Heroku
+    `heroku create <app-name>`
+
+**Note**: read [Getting started with Node.js][heroku-nodejs-bootstrap] guide to understand how to deploy Node.js application to Heroku.
+
 
 # Debug UI
 
@@ -155,3 +162,4 @@ TODO link to Ex03
 
 [nodejs]: https://nodejs.org
 [heroku]: https://www.heroku.com
+[heroku-nodejs-bootstrap]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
