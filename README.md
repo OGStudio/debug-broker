@@ -125,11 +125,12 @@ Node.js to run `debug-broker`.
 
 To start `debub-broker`, run the following command:
 
-`node index.js`
-
-You should see output like this:
-
-`Server listening at port 7999`
+```
+$ node index.js
+```
+```
+Server listening at port 7999
+```
 
 **Notes**:
 
@@ -150,7 +151,9 @@ Here's a brief information on how to host `debug-broker` at Heroku:
 
 * go to `debug-broker` directory
 
-    `$ cd /path/to/debug-broker`
+    ```
+    $ cd /path/to/debug-broker
+    ```
 
 * create Heroku application
 
@@ -164,13 +167,17 @@ Here's a brief information on how to host `debug-broker` at Heroku:
 
 * deploy `debub-broker` application:
 
-    `git push heroku master`
+    ```
+    $ git push heroku master
+    ```
 
 # Installation verification
 
 Run the following command:
 
-`curl <debug-broker-http(s)-address>`
+```
+$ curl <debug-broker-http(s)-address>
+```
 
 You should get `DebugBroker` as a response to GET request.
 
