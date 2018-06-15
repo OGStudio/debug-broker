@@ -5,7 +5,7 @@ debug-broker
 
 * was created to simplify debugging of cross-platform applications that run on desktop, mobile, and web
 * is a mediator between debugged application and debug UI
-* is a Node.js server
+* is a [Node.js][nodejs] server
 * should be hosted on a dedicated server
 
 # Debug protocol
@@ -92,7 +92,7 @@ Here's how Debug UI alteration JSON looks like:
 }
 ```
 
-# debug-broker processing
+# Internal logic
 
 ## Value prioritization
 
@@ -103,11 +103,12 @@ value that is different from the one `debug-broker` currently keeps.
 For example:
 
 * when application is constantly publishing new values of an item, `debug-broker` prefers new values
-* when application only publishes initial value once, debug UI gets a chance to send new values that are preferred by `debug-broker`
+* when application is constantly publishing the same value, debug UI gets a chance to send new value that is preferred by `debug-broker`
 
 ## HTTP requests
 
 `debug-broker` only accepts POST requests with a body as JSON listed above.
+`7999` port is used by default.
 
 If sent message contains `isWritable` property, such message is considered to
 originate from application. Otherwise, from debug UI.
@@ -117,9 +118,32 @@ message containing values that are now valid.
 
 # Installation
 
-Localhost?
+Node.js is the only dependency of `debug-broker`. So you only need to have
+Node.js to run `debug-broker`.
 
-Heroku?
+## Localhost
+
+To start `debub-broker`, run the following command:
+
+`node index.js`
+
+You should see output like this:
+
+`Server listening at port 7999`
+
+**Notes**:
+
+* localhost is usually unreachable by Android emulators and iOS devices
+* we recommend to host `debub-broker` at a machine available to all your devices
+
+## Heroku
+
+[Heroku][heroku] provides free hosting for Node.js apps. If you host
+`debug-broker` there, you can access `debug-broker` from virtually anywhere.
+
+**Warning**: `debug-broker` has no authentication, so anyone would be able to
+access your `debug-broker` instance.
+
 
 # Debug UI
 
@@ -128,3 +152,6 @@ TODO link to debug ui
 # App sample
 
 TODO link to Ex03
+
+[nodejs]: https://nodejs.org
+[heroku]: https://www.heroku.com
