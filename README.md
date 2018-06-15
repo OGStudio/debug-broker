@@ -1,3 +1,18 @@
+# Table of contents
+
+* [Overview](#overview)
+* [Debug protocol](#protocol)
+    * [Application side](#app-side)
+    * [Debug UI side](#ui-side)
+* [Internal logic](#logic)
+    * [Value prioritization](#values)
+    * [HTTP requests](#requests)
+* [Installation](#installation)
+    * [Localhost](#localhost)
+    * [Heroku](#heroku)
+* [Installation verification](#verification)
+
+<a name="overview"/>
 
 # Overview
 
@@ -8,10 +23,14 @@ debug-broker
 * is a [Node.js][nodejs] server
 * should be hosted on a dedicated server
 
+<a name="protocol"/>
+
 # Debug protocol
 
 Since `debug-broker` is a mediator between application and debug UI, both
 application and debug UI should exchange messages using the same protocol.
+
+<a name="app-side"/>
 
 ## Application side
 
@@ -61,6 +80,8 @@ In this case, `camera` items are:
     * with a value of `0.000000,-6.883219,0.000000/90.000000,0.000000,-0.000000`
     * the value is read-only
 
+<a name="ui-side"/>
+
 ## Debug UI side
 
 Debug UI either queries debug page items, or alters debug page item(s).
@@ -92,7 +113,11 @@ Here's how debug UI alteration JSON looks like:
 }
 ```
 
+<a name="logic"/>
+
 # Internal logic
+
+<a name="values"/>
 
 ## Value prioritization
 
@@ -105,6 +130,8 @@ For example:
 * when application is constantly publishing new values of an item, `debug-broker` prefers new values
 * when application is constantly publishing the same value, debug UI gets a chance to send new value that is preferred by `debug-broker`
 
+<a name="requests"/>
+
 ## HTTP requests
 
 `debug-broker` only accepts POST requests with a body as JSON listed above.
@@ -116,10 +143,14 @@ originate from application. Otherwise, from debug UI.
 Once message has been received and processed, `debug-broker` returns
 message containing values that are now valid.
 
+<a name="installation"/>
+
 # Installation
 
 [Node.js][nodejs] is the only dependency of `debug-broker`. So you only need to have
 Node.js to run `debug-broker`.
+
+<a name="localhost"/>
 
 ## Localhost
 
@@ -136,6 +167,8 @@ Server listening at port 7999
 
 * localhost is usually unreachable by Android emulators and iOS devices
 * we recommend to host `debub-broker` at a machine available to all your devices
+
+<a name="heroku"/>
 
 ## Heroku
 
@@ -171,6 +204,8 @@ Here's a brief information on how to host `debug-broker` at Heroku:
     $ git push heroku master
     ```
 
+<a name="verification"/>
+
 # Installation verification
 
 Run the following command:
@@ -185,9 +220,13 @@ You should get `DebugBroker` as a response to GET request.
 
 TODO link to debug ui
 
+TODO provide url anchor
+
 # App sample
 
 TODO link to Ex03
+
+TODO provide url anchor
 
 [nodejs]: https://nodejs.org
 [heroku]: https://www.heroku.com
