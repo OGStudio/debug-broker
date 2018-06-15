@@ -144,12 +144,30 @@ You should see output like this:
 **Warning**: `debug-broker` has no authentication, so anyone would be able to
 access your `debug-broker` instance.
 
-To host `debug-broker` at Heroku, do the following:
+**Note**: read [Getting started with Node.js][heroku-nodejs-bootstrap] guide to understand how to deploy Node.js applications to Heroku.
 
-* create an app on Heroku
-    `heroku create <app-name>`
+Here's a brief information on how to host `debug-broker` at Heroku:
 
-**Note**: read [Getting started with Node.js][heroku-nodejs-bootstrap] guide to understand how to deploy Node.js application to Heroku.
+* go to `debug-broker` directory
+
+    `$ cd /path/to/debug-broker`
+
+* create Heroku application
+
+    ```
+    $ heroku create app-name
+    ```
+    ```
+    Creating ⬢ app-name... done
+    https://app-name.herokuapp.com/ | https://git.heroku.com/app-name.git
+    ```
+
+* deploy `debub-broker` application:
+
+    `git push heroku master`
+
+If the deploy succeeded, you should have your `debug-broker` instance at
+`https://app-name.herokuapp.com` now.
 
 
 # Debug UI
