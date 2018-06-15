@@ -11,6 +11,8 @@
     * [Localhost](#localhost)
     * [Heroku](#heroku)
 * [Installation verification](#verification)
+* [Debug UI](#debug-ui)
+* [Sample application](#application)
 
 <a name="overview"/>
 
@@ -216,18 +218,20 @@ $ curl <debug-broker-http(s)-address>
 
 You should get `DebugBroker` as a response to GET request.
 
+<a name="debug-ui" />
+
 # Debug UI
 
-TODO link to debug ui
+Debug UI implemented as an HTML page is available [here][debug-ui].
 
-TODO provide url anchor
+<a name="application" />
 
-# App sample
+# Sample application
 
-TODO link to Ex03
+TODO link to Ex03 sample application
 
-TODO provide url anchor
 
 [nodejs]: https://nodejs.org
 [heroku]: https://www.heroku.com
 [heroku-nodejs-bootstrap]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
+[debug-ui]: https://github.com/OGStudio/debug-ui
