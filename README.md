@@ -84,13 +84,36 @@ Here's how Debug UI alteration JSON looks like:
       "items": [
         {
           "title": "BGColor",
-          "value": "151,51,102"
+          "value": "0,0,0"
         }
       ]
     }
   ]
 }
 ```
+
+# debug-broker processing
+
+## Value prioritization
+
+We have both application and debug UI sending values to `debug-broker`. Which
+value does `debug-broker` prefer? `debug-broker` prefers the latest (by date)
+value that is different from the one `debug-broker` currently keeps.
+
+For example:
+
+* when application is constantly publishing new values of an item, `debug-broker` prefers new values
+* when application only publishes initial value once, debug UI gets a chance to send new values that are preferred by `debug-broker`
+
+## HTTP requests
+
+`debug-broker` only accepts POST requests with a body as JSON listed above.
+
+If sent message contains `isWritable` property, such message is considered to
+originate from application. Otherwise, from debug UI.
+
+Once message has been received and processed, `debug-broker` returns
+message containing values that are now valid.
 
 # Installation
 
