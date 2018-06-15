@@ -166,9 +166,13 @@ Here's a brief information on how to host `debug-broker` at Heroku:
 
     `git push heroku master`
 
-If the deploy succeeded, you should have your `debug-broker` instance at
-`https://app-name.herokuapp.com` now.
+# Installation verification
 
+Run the following command:
+
+`curl <debug-broker-http(s)-address>`
+
+You should get `DebugBroker` as a response to GET request.
 
 # Debug UI
 
