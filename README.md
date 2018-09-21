@@ -124,13 +124,8 @@ Here's how debug UI alteration JSON looks like:
 ## Value prioritization
 
 We have both application and debug UI sending values to `debug-broker`. Which
-value does `debug-broker` prefer? `debug-broker` prefers the latest (by date)
-value that is different from the one `debug-broker` currently keeps.
-
-For example:
-
-* when application is constantly publishing new values of an item, `debug-broker` prefers new values
-* when application is constantly publishing the same value, debug UI gets a chance to send new value that is preferred by `debug-broker`
+value does `debug-broker` prefer? `debug-broker` accepts complete new items
+from Application, and values from UI.
 
 <a name="requests"/>
 
