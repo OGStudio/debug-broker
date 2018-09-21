@@ -35,18 +35,23 @@ class Debugger
             this.pages[page.title] = page;
         }
         // Accept new items for existing pages.
-        // Never accept new values, values are only accepted from UI.
+        // Only accept new values for items that have `isWritable=0`.
         else
         {
             var storedPage = this.pages[page.title];
             for (var id in page.items)
             {
                 const item = page.items[id];
-                const storedItem = storedPage.item(item.title);
+                var storedItem = storedPage.item(item.title);
                 // Accept new item.
                 if (!storedItem)
                 {
                     storedPage.addItem(item);
+                }
+                // Accept new value if `isWritable=0`.
+                else if (!storedItem.isWritable)
+                {
+                    storedItem.value = item.value
                 }
             }
         }
