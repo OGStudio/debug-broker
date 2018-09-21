@@ -25,6 +25,7 @@ class Debugger
     }
 
     // Receive new pages and items from Application.
+    // Never accept values, values are only accepted from UI.
     processAppDebugPage(page)
     {
         const pageExists = (page.title in this.pages);
@@ -34,9 +35,7 @@ class Debugger
             this.pages[page.title] = page;
         }
         // Accept new items for existing pages.
-        // Only accept new values if
-        // * they are different now
-        // * they were changed by App, not UI
+        // Never accept new values, values are only accepted from UI.
         else
         {
             var storedPage = this.pages[page.title];
@@ -48,25 +47,6 @@ class Debugger
                 if (!storedItem)
                 {
                     storedPage.addItem(item);
-                }
-                // Accept value if new.
-                else
-                {
-                    var appValue = storedItem.appValue;
-
-                    var appValueString = JSON.stringify(appValue, null, 2);
-                    DEBUGGER_LOG(`01.processAppDebugPage. appValue: '${appValueString}'`);
-                    DEBUGGER_LOG(`02.processAppDebugPage. appValue.value: '${appValue.value}'`);
-
-                    if (item.latestValue() != appValue.value)
-                    {
-                        DEBUGGER_LOG(`03.1.processAppDebugPage. assign appValue`);
-                        appValue.value = item.latestValue();
-                        appValue.dt = new Date();
-                    }
-
-                    appValueString = JSON.stringify(appValue, null, 2);
-                    DEBUGGER_LOG(`04.processAppDebugPage. appValue: '${appValueString}'`);
                 }
             }
         }
@@ -95,13 +75,8 @@ class Debugger
                 {
                     continue;
                 }
-                // Accept value if new.
-                var uiValue = storedItem.uiValue;
-                if (item.latestValue() != uiValue.value)
-                {
-                    uiValue.value = item.latestValue();
-                    uiValue.dt = new Date();
-                }
+                // Accept new value.
+                storedItem.value = item.value
             }
         }
     }
