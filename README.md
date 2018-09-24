@@ -223,10 +223,10 @@ Debug UI implemented as an HTML page is available [here][debug-ui].
 
 # Sample application
 
-Sample application that you can alter using this debug UI is available [here][ex03].
+Sample application that you can alter using this debug UI is available [here][osgcpe-04].
 
 [nodejs]: https://nodejs.org
 [heroku]: https://www.heroku.com
 [heroku-nodejs-bootstrap]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
 [debug-ui]: https://github.com/OGStudio/debug-ui
-[ex03]: https://github.com/OGStudio/openscenegraph-cross-platform-examples/tree/master/03.RemoteDebugging
+[osgcpe-04]: https://github.com/OGStudio/openscenegraph-cross-platform-examples/tree/master/04.RemoteDebugging
