@@ -151,7 +151,7 @@ Node.js to run `debug-broker`.
 
 ## Localhost
 
-To start `debub-broker`, run the following command:
+To start `debug-broker`, run the following command:
 
 ```
 $ node index.js
@@ -163,7 +163,7 @@ Server listening at port 7999
 **Notes**:
 
 * localhost is usually unreachable by Android emulators and iOS devices
-* we recommend to host `debub-broker` at a machine available to all your devices
+* we recommend to host `debug-broker` at a machine available to all your devices
 
 <a name="heroku"/>
 
@@ -195,7 +195,7 @@ Here's a brief information on how to host `debug-broker` at Heroku:
     https://app-name.herokuapp.com/ | https://git.heroku.com/app-name.git
     ```
 
-* deploy `debub-broker` application:
+* deploy `debug-broker` application:
 
     ```
     $ git push heroku master
